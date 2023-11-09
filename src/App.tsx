@@ -1,14 +1,15 @@
 import React from 'react';
-import { Header } from './templates/Header';
+import { Homepage } from './pages/Homepage';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme } from './styles/Themes/darkTheme';
+import Globals from './styles/globals';
 
 const App = (): JSX.Element => {
   return (
-    <div>
-      <Header />
-      <main>
-        <p>Homepage</p>
-      </main>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Homepage />
+      <Globals />
+    </ThemeProvider>
   );
 };
 
