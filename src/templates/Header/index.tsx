@@ -5,6 +5,7 @@ import { HeaderLogo } from './HeaderLogo';
 interface Props {
   handleToggleTheme: () => void;
   isDarkTheme: boolean;
+  handleModalToggle: () => void;
 }
 
 export const Header = (props: Props): JSX.Element => {
@@ -15,7 +16,7 @@ export const Header = (props: Props): JSX.Element => {
           <HeaderLogo />
 
           <S.HeaderButtons>
-            <button>Nova Transação</button>
+            <button onClick={props.handleModalToggle}>Nova Transação</button>
 
             <S.ToggleButton
               onClick={props.handleToggleTheme}

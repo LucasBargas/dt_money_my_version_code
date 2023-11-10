@@ -8,6 +8,7 @@ export const darkTheme: DefaultTheme = {
     fieldActiveColor: '#00875f',
     fontColor: '#e2e1e6',
     negativeColor: '#cd585d',
+    modalBackground: 'rgba(18, 18, 20, .9)',
   },
 
   fonts: {

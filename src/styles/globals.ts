@@ -18,6 +18,7 @@ const Globals = createGlobalStyle`
   }
 
   body {
+    height: calc(100vh + 2rem);
     background: ${({ theme }) => theme.colors.primaryColor};
     color: ${({ theme }) => theme.colors.fontColor};
     font-family: ${({ theme }) => theme.fonts.roboto};

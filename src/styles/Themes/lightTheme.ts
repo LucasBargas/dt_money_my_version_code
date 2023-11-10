@@ -8,6 +8,7 @@ export const lightTheme: DefaultTheme = {
     fieldActiveColor: '#00875f',
     fontColor: '#3b4565',
     negativeColor: '#cd585d',
+    modalBackground: 'rgba(59, 69, 101, .9)',
   },
 
   fonts: {

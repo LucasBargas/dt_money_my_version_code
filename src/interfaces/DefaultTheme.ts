@@ -9,6 +9,7 @@ declare module 'styled-components' {
       fieldActiveColor: string;
       fontColor: string;
       negativeColor: string;
+      modalBackground: string;
     };
 
     fonts: {
