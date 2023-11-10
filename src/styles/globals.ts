@@ -22,7 +22,7 @@ const Globals = createGlobalStyle`
     color: ${({ theme }) => theme.colors.fontColor};
     font-family: ${({ theme }) => theme.fonts.roboto};
     letter-spacing: 1px;
-    transition: .6s;
+    transition: background-color .4s;
 
     button, input {
       outline: none;

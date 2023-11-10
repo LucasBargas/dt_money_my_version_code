@@ -5,7 +5,7 @@ export const lightTheme: DefaultTheme = {
     primaryColor: '#f1f2f6',
     secondaryColor: '#5329cb',
     fieldColor: '#ffffff',
-    fieldActiveColor: '#015f44',
+    fieldActiveColor: '#00875f',
     fontColor: '#3b4565',
     negativeColor: '#cd585d',
   },

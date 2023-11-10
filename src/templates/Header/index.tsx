@@ -1,4 +1,7 @@
 import React from 'react';
+import * as S from './styles';
+import { Container } from '../../components/Container';
+import { HeaderLogo } from './HeaderLogo';
 
 interface Props {
   handleToggleTheme: () => void;
@@ -7,10 +10,21 @@ interface Props {
 
 export const Header = (props: Props): JSX.Element => {
   return (
-    <header>
-      <button onClick={props.handleToggleTheme}>
-        {`The current theme is ${props.isDarkTheme ? 'dark' : 'light'}`}
-      </button>
-    </header>
+    <S.HeaderContainer>
+      <Container>
+        <S.HeaderWrapper>
+          <HeaderLogo />
+
+          <S.HeaderButtons>
+            <button>Nova Transação</button>
+
+            <S.ToggleButton
+              onClick={props.handleToggleTheme}
+              isDarkTheme={props.isDarkTheme}
+            ></S.ToggleButton>
+          </S.HeaderButtons>
+        </S.HeaderWrapper>
+      </Container>
+    </S.HeaderContainer>
   );
 };
