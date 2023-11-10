@@ -2,12 +2,7 @@ import React from 'react';
 import { Header } from '../../templates/Header';
 import { Modal } from '../../templates/Modal';
 
-interface Props {
-  handleToggleTheme: () => void;
-  isDarkTheme: boolean;
-}
-
-export const Homepage = (props: Props): JSX.Element => {
+export const Homepage = (): JSX.Element => {
   const [showModal, setShowModal] = React.useState<boolean>(true);
 
   const handleModalToggle = (): void => {
@@ -16,11 +11,7 @@ export const Homepage = (props: Props): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Header
-        handleToggleTheme={props.handleToggleTheme}
-        isDarkTheme={props.isDarkTheme}
-        handleModalToggle={handleModalToggle}
-      />
+      <Header handleModalToggle={handleModalToggle} />
       <Modal showModal={showModal} handleModalToggle={handleModalToggle} />
       <p>sds</p>
     </React.Fragment>

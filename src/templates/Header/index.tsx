@@ -3,8 +3,6 @@ import { Container } from '../../components/Container';
 import { HeaderLogo } from './HeaderLogo';
 
 interface Props {
-  handleToggleTheme: () => void;
-  isDarkTheme: boolean;
   handleModalToggle: () => void;
 }
 
@@ -17,11 +15,6 @@ export const Header = (props: Props): JSX.Element => {
 
           <S.HeaderButtons>
             <button onClick={props.handleModalToggle}>Nova Transação</button>
-
-            <S.ToggleButton
-              onClick={props.handleToggleTheme}
-              isDarkTheme={props.isDarkTheme}
-            ></S.ToggleButton>
           </S.HeaderButtons>
         </S.HeaderWrapper>
       </Container>

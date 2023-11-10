@@ -31,26 +31,3 @@ export const HeaderButtons = styled.div`
     }
   }
 `;
-
-export const ToggleButton = styled.button<{ isDarkTheme: boolean }>`
-  width: 70px;
-  height: 34px;
-  border-radius: 34px;
-  background: red;
-  position: relative;
-  background: ${({ theme }) => theme.colors.primaryColor};
-
-  &&:after {
-    content: '';
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    background: ${({ theme }) => theme.colors.secondaryColor};
-    transform: ${({ isDarkTheme }) =>
-      isDarkTheme ? 'translateX(36px)' : 'translateX(0px)'};
-    transition: .4s;
-  }
-`;
