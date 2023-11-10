@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const Homepage = (props: Props): JSX.Element => {
-  const [showModal, setShowModal] = React.useState<boolean>(false);
+  const [showModal, setShowModal] = React.useState<boolean>(true);
 
   const handleModalToggle = (): void => {
     setShowModal(!showModal);

@@ -26,6 +26,7 @@ const Globals = createGlobalStyle`
     transition: background-color .4s;
 
     button, input {
+      display: block;
       outline: none;
       border: none;
       font-family: ${({ theme }) => theme.fonts.roboto};

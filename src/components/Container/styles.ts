@@ -6,7 +6,7 @@ export const ContainerWrapper = styled.div`
   margin: 0 auto;
 
   @media (max-width: 1366px) {
-    max-width: 1200px;
+    max-width: 1120px;
   }
 
   @media (max-width: 1024px) {
