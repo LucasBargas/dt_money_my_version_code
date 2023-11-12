@@ -19,7 +19,6 @@ interface Inputs {
 
 export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
   const { transactions, setTransactions } = useTransactions();
-
   const [transactionType, setTransactionType] =
     React.useState<string>('deposit');
 
