@@ -35,6 +35,7 @@ export const ModalFormContainer = styled.div`
       }
 
       p {
+        margin-top: .25rem;
         font-size: .875rem;
         color: tomato;
       }
