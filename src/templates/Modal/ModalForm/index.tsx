@@ -4,6 +4,8 @@ import incomeIcon from '../../../assets/income.svg';
 import outcomeIcon from '../../../assets/outcome.svg';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
+import { useTransactions } from '../../../hooks/useTransactions.';
+import { type ITransactions } from '../../../interfaces/iTransactions';
 
 interface Props {
   handleModalToggle: () => void;
@@ -16,6 +18,8 @@ interface Inputs {
 }
 
 export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
+  const { transactions, setTransactions } = useTransactions();
+
   const [transactionType, setTransactionType] =
     React.useState<string>('deposit');
 
@@ -31,15 +35,16 @@ export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
     category,
     description,
   }): void => {
-    const values = {
+    const transactionDesc: ITransactions = {
       id: uuidv4(),
       amount: Number(amount),
       category,
       description,
       transactionType,
+      createdAt: new Date(),
     };
 
-    console.log(values);
+    setTransactions([transactionDesc, ...transactions]);
 
     reset({
       description: '',

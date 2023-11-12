@@ -31,7 +31,7 @@ export const ModalArea = styled.div<{ showModal: boolean }>`
   transition: .2s;
 
   @media (max-width: 375px) {
-    border-radius: 8px;
+    border-radius: 12px;
   }
 `;
 

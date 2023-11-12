@@ -3,7 +3,7 @@ import { Header } from '../../templates/Header';
 import { Modal } from '../../templates/Modal';
 
 export const Homepage = (): JSX.Element => {
-  const [showModal, setShowModal] = React.useState<boolean>(true);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
 
   const handleModalToggle = (): void => {
     setShowModal(!showModal);
