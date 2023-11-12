@@ -25,6 +25,7 @@ export const ModalFormContainer = styled.div`
         padding: 1rem;
         font-size: 1rem;
         background: ${({ theme }) => theme.colors.secondaryColor};
+        color: ${({ theme }) => theme.colors.fontColor};
         border: 2px solid transparent;
         border-radius: 4px;
         transition: .4s;
