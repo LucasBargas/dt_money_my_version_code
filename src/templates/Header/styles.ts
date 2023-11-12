@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding-top: 3rem;
 `;
 
 export const HeaderButtons = styled.div`

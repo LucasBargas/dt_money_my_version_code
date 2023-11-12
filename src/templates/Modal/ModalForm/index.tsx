@@ -1,5 +1,7 @@
 import React from 'react';
 import * as S from './styles';
+import incomeIcon from '../../../assets/income.svg';
+import outcomeIcon from '../../../assets/outcome.svg';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,6 +16,9 @@ interface Inputs {
 }
 
 export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
+  const [transactionType, setTransactionType] =
+    React.useState<string>('deposit');
+
   const {
     register,
     handleSubmit,
@@ -26,7 +31,13 @@ export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
     category,
     description,
   }): void => {
-    const values = { id: uuidv4(), amount, category, description };
+    const values = {
+      id: uuidv4(),
+      amount: Number(amount),
+      category,
+      description,
+      transactionType,
+    };
 
     console.log(values);
 
@@ -74,9 +85,31 @@ export const ModalForm = ({ handleModalToggle }: Props): JSX.Element => {
           {errors.category && <p>É preciso fornecer uma categoria.</p>}
         </div>
 
-        <button type="button">Entrada</button>
-        <button type="button">Saída</button>
-        <button type="submit">Enviar</button>
+        <S.ModalFormTransactionsButtons>
+          <S.TransactionsButtonType
+            type="button"
+            isActive={transactionType === 'deposit'}
+            isColor="fieldActiveColor"
+            onClick={() => {
+              setTransactionType('deposit');
+            }}
+          >
+            <img src={incomeIcon} alt="" /> Entrada
+          </S.TransactionsButtonType>
+
+          <S.TransactionsButtonType
+            type="button"
+            isActive={transactionType === 'withdraw'}
+            isColor="buttonRedColor"
+            onClick={() => {
+              setTransactionType('withdraw');
+            }}
+          >
+            <img src={outcomeIcon} alt="" /> Saída
+          </S.TransactionsButtonType>
+        </S.ModalFormTransactionsButtons>
+
+        <button type="submit">Cadastrar</button>
       </form>
     </S.ModalFormContainer>
   );

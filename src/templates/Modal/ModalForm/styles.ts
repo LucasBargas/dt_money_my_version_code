@@ -3,11 +3,19 @@ import styled from 'styled-components';
 export const ModalFormContainer = styled.div`
   padding: 0 3rem 3rem 3rem;
 
+  @media (max-width: 414px) {
+    padding: 0 2rem 5rem 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
   form {
-    display: grid;
-    grid-column: repeat(3, 1fr);
-    padding-top: 1rem;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.25rem;
+    gap: 1.25rem;
 
     div {
       width: 100%;
@@ -17,6 +25,13 @@ export const ModalFormContainer = styled.div`
         padding: 1rem;
         font-size: 1rem;
         background: ${({ theme }) => theme.colors.secondaryColor};
+        border: 2px solid transparent;
+        border-radius: 4px;
+        transition: .4s;
+
+        &:focus {
+          border-color: ${({ theme }) => theme.colors.fieldActiveColor};
+        }
       }
 
       p {
@@ -25,37 +40,53 @@ export const ModalFormContainer = styled.div`
       }
     }
 
-    #description {
-      grid-column: 1 / 3;
-      grid-row: 1 / 2;
-    }
+    button {
+      font-size: 1rem;
+      padding: .75rem;
+      border-radius: 4px;
 
-    #amount {
-      grid-column: 1 / 3;
-      grid-row: 2 / 3;
-    }
+      &[type="submit"] {
+        margin-top: 1rem;
+        background: ${({ theme }) => theme.colors.fieldActiveColor};
+        color: ${({ theme }) => theme.colors.fontColor};
+        transition: .5s;
 
-    #category {
-      grid-column: 1 / 3;
-      grid-row: 3 / 4;
-    }
-
-    button[type="button"]:nth-of-type(1){
-      background: red;
-      grid-column: 1 / 2;
-      grid-row: 4 / 5;
-    }
-
-    button[type="button"]:nth-of-type(2) {
-      background: orange;
-      grid-column: 2 / 3;
-      grid-row: 4 / 5;
-    }
-
-    button[type="submit"] {
-      grid-column: 1 / 3;
-      grid-row: 5 / 6;
-      margin-top: .5rem;
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
     }
   }
+`;
+
+export const ModalFormTransactionsButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+interface IButton {
+  isActive: boolean;
+  isColor: 'fieldActiveColor' | 'buttonRedColor';
+}
+
+export const TransactionsButtonType = styled.button<IButton>`
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    background: ${({ theme, isActive, isColor }) =>
+      isActive ? theme.colors[isColor] : theme.colors.fieldColor};
+    color: ${({ theme }) => theme.colors.fontColor};
+    transition: .5s;
+
+    &:hover {
+      background: ${({ theme, isColor }) => theme.colors[isColor]} !important;
+    }
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
 `;

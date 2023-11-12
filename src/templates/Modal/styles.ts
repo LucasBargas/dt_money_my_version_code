@@ -14,6 +14,11 @@ export const ModalContainer = styled.section<{ showModal: boolean }>`
   opacity: ${({ showModal }) => (!showModal ? '0' : '1')};
   pointer-events: ${({ showModal }) => (!showModal ? 'none' : 'all')};
   transition: .2s;
+
+  @media (max-width: 375px) {
+    align-items: flex-end;
+    padding: 0;
+  }
 `;
 
 export const ModalArea = styled.div<{ showModal: boolean }>`
@@ -24,15 +29,19 @@ export const ModalArea = styled.div<{ showModal: boolean }>`
   transform: ${({ showModal }) =>
     showModal ? 'translate3d(0, 0, 0)' : 'translate3d(0, -40px, 0)'};
   transition: .2s;
+
+  @media (max-width: 375px) {
+    border-radius: 8px;
+  }
 `;
 
 export const ModalButton = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: .25rem;
+  padding: .325rem;
 
   button {
-    font-size: 1.625rem;
+    font-size: 25px;
     padding: 0.5rem;
     background: transparent;
     color: ${({ theme }) => theme.colors.fontColor};

@@ -7,6 +7,7 @@ declare module 'styled-components' {
       secondaryColor: string;
       fieldColor: string;
       fieldActiveColor: string;
+      buttonRedColor: string;
       fontColor: string;
       negativeColor: string;
       modalBackground: string;

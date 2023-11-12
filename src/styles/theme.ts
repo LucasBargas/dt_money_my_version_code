@@ -6,6 +6,7 @@ export const theme: DefaultTheme = {
     secondaryColor: '#121214',
     fieldColor: '#2a292e',
     fieldActiveColor: '#00875f',
+    buttonRedColor: '#AA2834;',
     fontColor: '#e2e1e6',
     negativeColor: '#cd585d',
     modalBackground: 'rgba(18, 18, 20, .9)',
