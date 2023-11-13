@@ -45,7 +45,7 @@ export const Summary = (): JSX.Element => {
               <img src={outcomeIcon} alt="Saídas" />
             </i>
           </header>
-          <strong>- {transformCurrency(transactionTypeSum('withdraw'))}</strong>
+          <strong>{transformCurrency(transactionTypeSum('withdraw'))}</strong>
         </S.SummaryCard>
         <S.SummaryCard>
           <header>
