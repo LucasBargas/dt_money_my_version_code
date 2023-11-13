@@ -13,7 +13,7 @@ export const SummaryContainer = styled.section`
     padding: 0 2.75rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 608px) {
     overflow-x: auto;
   }
 
@@ -32,7 +32,7 @@ export const SummaryCard = styled.div`
   border-radius: 0.375rem;
   width: calc(100% / 3);
 
-  @media (max-width: 600px) {
+  @media (max-width: 608px) {
     flex-shrink: 0;
     width: 65%;
   }
@@ -41,10 +41,6 @@ export const SummaryCard = styled.div`
     flex-shrink: 0;
     width: 70%;
   }
-
-  /* @media (max-width: 768px) {
-    padding: 1.5rem;
-  } */
 
   &:not(:last-of-type) {
     background: ${({ theme }) => theme.colors.fieldColor};
