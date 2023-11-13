@@ -19,7 +19,7 @@ export const HeaderButtons = styled.div`
   button {
     &:first-of-type {
       background: ${({ theme }) => theme.colors.fieldActiveColor};
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.fontColor};
       font-weight: 500;
       padding: .75rem;
       border-radius: .325rem;
