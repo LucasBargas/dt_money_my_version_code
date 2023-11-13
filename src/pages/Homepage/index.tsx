@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from '../../templates/Header';
 import { Modal } from '../../templates/Modal';
+import { Summary } from '../../templates/Summary';
 
 export const Homepage = (): JSX.Element => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -13,7 +14,7 @@ export const Homepage = (): JSX.Element => {
     <React.Fragment>
       <Header handleModalToggle={handleModalToggle} />
       <Modal showModal={showModal} handleModalToggle={handleModalToggle} />
-      <p>sds</p>
+      <Summary />
     </React.Fragment>
   );
 };
