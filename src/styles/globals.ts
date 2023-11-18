@@ -19,7 +19,7 @@ const Globals = createGlobalStyle`
 
   body {
     height: calc(100vh + 2rem);
-    background: ${({ theme }) => theme.colors.primaryColor};
+    background: ${({ theme }) => theme.colors.secondaryColor};
     color: ${({ theme }) => theme.colors.fontColor};
     font-family: ${({ theme }) => theme.fonts.roboto};
     letter-spacing: 1px;
