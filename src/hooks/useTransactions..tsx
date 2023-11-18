@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import React from 'react';
-import { type ITransactions } from '../interfaces/iTransactions';
+import { type ITransactions } from '../interfaces/ITransactions';
 
 interface Props {
   children: JSX.Element;

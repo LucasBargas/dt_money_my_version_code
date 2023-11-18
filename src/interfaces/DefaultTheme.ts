@@ -6,7 +6,9 @@ declare module 'styled-components' {
       primaryColor: string;
       secondaryColor: string;
       fieldColor: string;
-      fieldActiveColor: string;
+      summaryCard: string;
+      greenColor: string;
+      greenColorActive: string;
       buttonRedColor: string;
       fontColor: string;
       negativeColor: string;
