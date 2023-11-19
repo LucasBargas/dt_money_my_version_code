@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ModalFormArea = styled.div`
   padding: 0 3rem 3rem 3rem;
 
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     padding: 0 1.5rem 2.5rem 1.5rem;
   }
 
