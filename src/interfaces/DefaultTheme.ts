@@ -10,6 +10,7 @@ declare module 'styled-components' {
       greenColor: string;
       greenColorActive: string;
       buttonRedColor: string;
+      buttonRedColorActive: string;
       fontColor: string;
       negativeColor: string;
       modalBackground: string;

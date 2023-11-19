@@ -94,7 +94,9 @@ export const ModalForm = (): JSX.Element => {
               transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
             }
             hover={
-              transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
+              transactionType === 'withdraw'
+                ? 'buttonRedColorActive'
+                : 'fieldColor'
             }
             padding="1rem"
             type="button"
