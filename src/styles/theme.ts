@@ -2,8 +2,8 @@ import { type DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
   colors: {
-    primaryColor: '#202024',
-    secondaryColor: '#121214',
+    primaryColor: '#121214',
+    secondaryColor: '#202024',
     fieldColor: '#29292E',
     summaryCard: '#323238',
     greenColor: '#00875F',

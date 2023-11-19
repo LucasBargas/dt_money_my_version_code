@@ -41,8 +41,12 @@ const Globals = createGlobalStyle`
       list-style: none;
     }
 
-    svg, span {
+    svg, span, img {
       display: block;
+    }
+
+    img {
+      width: 100%;
     }
 
     a {
