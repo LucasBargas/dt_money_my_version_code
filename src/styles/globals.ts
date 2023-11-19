@@ -31,6 +31,10 @@ const Globals = createGlobalStyle`
       font-family: ${({ theme }) => theme.fonts.roboto};
       letter-spacing: 1px;
       font-size: 1rem;
+
+      @media (max-width: 375px) {
+        font-size: .875rem;
+      }
     }
 
     button {

@@ -39,6 +39,10 @@ export const ButtonElement = styled.button<ButtonProperties>`
   border-radius: .325rem;
   transition: .4s;
 
+  @media (max-width: 375px) {
+    padding: .875rem;
+  }
+
   ${({ icon }) =>
     icon &&
     css`

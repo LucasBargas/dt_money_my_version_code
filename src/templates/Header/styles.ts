@@ -10,4 +10,10 @@ export const HeaderArea = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 2.875rem;
+
+  @media (max-width: 375px) {
+    img {
+      width: 80%;
+    }
+  }
 `;
