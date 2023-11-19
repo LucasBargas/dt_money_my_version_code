@@ -21,6 +21,7 @@ interface Props {
     | 'buttonRedColor'
     | 'fontColor'
     | 'fieldColor';
+  hover: 'primaryColor' | 'greenColorActive';
   icon?: boolean;
   padding: string;
   type: 'button' | 'submit';
@@ -34,6 +35,7 @@ export const Button = (props: Props): JSX.Element => {
       color={props.color}
       background={props.background}
       border={props.border}
+      hover={props.hover}
       icon={props.icon}
       padding={props.padding}
       type={props.type}

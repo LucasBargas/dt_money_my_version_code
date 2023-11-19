@@ -3,7 +3,8 @@ import React from 'react';
 import * as S from './styles';
 import { Input } from '../../../components/Input';
 import { type ITransactions } from '../../../interfaces/ITransactions';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
+import { Button } from '../../../components/Button';
 
 export const ModalForm = (): JSX.Element => {
   const [transactionBody, setTransactionBody] = React.useState(
@@ -33,6 +34,7 @@ export const ModalForm = (): JSX.Element => {
           handleChange={handleChange}
           value={transactionBody.description}
         />
+
         <Input
           focus
           id="test"
@@ -42,6 +44,7 @@ export const ModalForm = (): JSX.Element => {
           handleChange={handleChange}
           value={transactionBody.amount}
         />
+
         <Input
           focus
           id="test"
@@ -52,7 +55,38 @@ export const ModalForm = (): JSX.Element => {
           value={transactionBody.category}
         />
 
-        <button type="submit">Enviar</button>
+        <Button
+          color="fontColor"
+          background="fieldColor"
+          border="fieldColor"
+          hover="primaryColor"
+          padding="1rem"
+          type="button"
+        >
+          Entrada
+        </Button>
+
+        <Button
+          color="fontColor"
+          background="fieldColor"
+          border="fieldColor"
+          hover="primaryColor"
+          padding="1rem"
+          type="button"
+        >
+          Saída
+        </Button>
+
+        <Button
+          color="fontColor"
+          background="greenColor"
+          border="greenColor"
+          hover="greenColorActive"
+          padding="1rem"
+          type="submit"
+        >
+          Cadastrar
+        </Button>
       </form>
     </S.ModalFormArea>
   );

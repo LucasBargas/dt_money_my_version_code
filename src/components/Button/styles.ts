@@ -20,6 +20,7 @@ interface ButtonProperties {
     | 'buttonRedColor'
     | 'fontColor'
     | 'fieldColor';
+  hover: 'primaryColor' | 'greenColorActive';
   padding: string;
   icon?: boolean;
 }
@@ -42,6 +43,7 @@ export const ButtonElement = styled.button<ButtonProperties>`
   `}
 
   &:hover {
-    filter: brightness(.8);
+    background: ${({ theme, hover }) => theme.colors[hover]};
+    border-color: ${({ theme, hover }) => theme.colors[hover]};
   }
 `;
