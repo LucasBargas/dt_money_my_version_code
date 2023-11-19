@@ -30,7 +30,6 @@ export const ModalForm = (): JSX.Element => {
       createdAt: new Date().toLocaleString('pt-BR').slice(0, 10),
     };
 
-    console.log(transaction);
     setTransactions([transaction, ...transactions]);
   };
 
