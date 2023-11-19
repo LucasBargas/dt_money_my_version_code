@@ -8,6 +8,7 @@ import { Button } from '../../../components/Button';
 
 export const ModalForm = (): JSX.Element => {
   const [data, setData] = React.useState({} as ITransactions);
+  const [transactionType, setTransactionType] = React.useState('deposit');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -23,7 +24,7 @@ export const ModalForm = (): JSX.Element => {
       description,
       amount,
       category,
-      transactionType: 'deposit',
+      transactionType,
       createdAt: new Date().toLocaleString('pt-BR').slice(0, 10),
     };
 
@@ -68,22 +69,38 @@ export const ModalForm = (): JSX.Element => {
         <S.FormButtons>
           <Button
             color="fontColor"
-            background="fieldColor"
-            border="fieldColor"
-            hover="primaryColor"
+            background={
+              transactionType === 'deposit' ? 'greenColor' : 'fieldColor'
+            }
+            border={transactionType === 'deposit' ? 'greenColor' : 'fieldColor'}
+            hover={
+              transactionType === 'deposit' ? 'greenColorActive' : 'fieldColor'
+            }
             padding="1rem"
             type="button"
+            handleClick={() => {
+              setTransactionType('deposit');
+            }}
           >
             Entrada
           </Button>
 
           <Button
             color="fontColor"
-            background="fieldColor"
-            border="fieldColor"
-            hover="primaryColor"
+            background={
+              transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
+            }
+            border={
+              transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
+            }
+            hover={
+              transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
+            }
             padding="1rem"
             type="button"
+            handleClick={() => {
+              setTransactionType('withdraw');
+            }}
           >
             Saída
           </Button>

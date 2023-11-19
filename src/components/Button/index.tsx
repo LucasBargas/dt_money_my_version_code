@@ -21,7 +21,7 @@ interface Props {
     | 'buttonRedColor'
     | 'fontColor'
     | 'fieldColor';
-  hover: 'primaryColor' | 'greenColorActive';
+  hover: 'primaryColor' | 'greenColorActive' | 'buttonRedColor' | 'fieldColor';
   icon?: boolean;
   padding: string;
   type: 'button' | 'submit';

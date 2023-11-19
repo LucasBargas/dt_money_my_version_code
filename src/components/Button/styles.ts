@@ -20,7 +20,7 @@ interface ButtonProperties {
     | 'buttonRedColor'
     | 'fontColor'
     | 'fieldColor';
-  hover: 'primaryColor' | 'greenColorActive';
+  hover: 'primaryColor' | 'greenColorActive' | 'buttonRedColor' | 'fieldColor';
   padding: string;
   icon?: boolean;
 }
