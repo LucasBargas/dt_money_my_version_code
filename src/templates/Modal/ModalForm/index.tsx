@@ -5,12 +5,13 @@ import { Input } from '../../../components/Input';
 import { type ITransactions } from '../../../interfaces/ITransactions';
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../../../components/Button';
-import { useTransactions } from '../../../hooks/useTransactions.';
+import { useTransactions } from '../../../hooks/useTransactions';
 
 export const ModalForm = (): JSX.Element => {
-  const [data, setData] = React.useState({} as ITransactions);
   const [transactionType, setTransactionType] = React.useState('deposit');
   const { transactions, setTransactions } = useTransactions();
+  const [data, setData] = React.useState({} as ITransactions);
+  // const [data, setData] = React.useState(transactions[0]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -46,6 +47,7 @@ export const ModalForm = (): JSX.Element => {
           type="text"
           handleChange={handleChange}
           value={data.description}
+          // value={(props.type === 'edit' && data?.description) || ''}
         />
 
         <Input
@@ -54,8 +56,9 @@ export const ModalForm = (): JSX.Element => {
           placeholder="Preço"
           name="amount"
           type="text"
-          handleChange={handleChange}
           value={data.amount}
+          handleChange={handleChange}
+          // value={(props.type === 'edit' && data?.amount) || ''}
         />
 
         <Input
@@ -66,6 +69,7 @@ export const ModalForm = (): JSX.Element => {
           type="text"
           handleChange={handleChange}
           value={data.category}
+          // value={(props.type === 'edit' && data?.category) || ''}
         />
 
         <S.FormButtons>

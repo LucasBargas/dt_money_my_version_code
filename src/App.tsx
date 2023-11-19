@@ -2,7 +2,7 @@ import { Homepage } from './pages/Homepage';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import Globals from './styles/globals';
-import { TaskListProvider } from './hooks/useTransactions.';
+import { TaskListProvider } from './hooks/useTransactions';
 
 const App = (): JSX.Element => {
   return (
