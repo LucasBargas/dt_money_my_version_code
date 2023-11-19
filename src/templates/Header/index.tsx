@@ -21,6 +21,7 @@ export const Header = (): JSX.Element => {
             color="fontColor"
             background="greenColor"
             border="greenColor"
+            hover="greenColorActive"
             padding="1rem"
             type="button"
           >
