@@ -30,6 +30,7 @@ const Globals = createGlobalStyle`
       border: none;
       font-family: ${({ theme }) => theme.fonts.roboto};
       letter-spacing: 1px;
+      font-size: 1rem;
     }
 
     button {
