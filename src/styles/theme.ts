@@ -9,7 +9,7 @@ export const theme: DefaultTheme = {
     greenColor: '#00875F',
     greenColorActive: '#015F43',
     buttonRedColor: '#AA2834',
-    buttonRedColorActive: '#B23245',
+    buttonRedColorActive: '#B23246',
     fontColor: '#e2e1e6',
     negativeColor: '#cd585d',
     modalBackground: 'rgba(18, 18, 20, .9)',
