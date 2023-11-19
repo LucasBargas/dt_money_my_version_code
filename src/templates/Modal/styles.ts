@@ -18,6 +18,12 @@ export const ModalContainer = styled.section`
   @media (max-width: 480px) {
     padding: 0 1.25rem;
   }
+
+  @media (max-width: 375px) {
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0;
+  }
 `;
 
 export const ModalArea = styled.div`

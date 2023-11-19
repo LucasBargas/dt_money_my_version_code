@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const ModalFormArea = styled.div`
   padding: 0 3rem 3rem 3rem;
 
+  @media (max-width: 375px) {
+    padding: 0 1.5rem 2.5rem 1.5rem;
+  }
+
   h2 {
     font-size: 1.5rem;
   }
@@ -27,7 +31,7 @@ export const FormButtons = styled.div`
     }
 
     &[type= 'button']:last-of-type {
-      grid-column: 2 / 3;
+      grid-column: 2 / 2;
     }
 
     &[type= 'submit'] {
