@@ -41,5 +41,9 @@ export const ModalAreaHeader = styled.div`
         filter: brightness(.8);
       }
     }
+
+    img {
+      transition: .4s;
+    }
   }
 `;
