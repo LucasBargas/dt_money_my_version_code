@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import React from 'react';
 import * as S from './styles';
+import income from '../../../assets/income.svg';
+import outcome from '../../../assets/outcome.svg';
 import { Input } from '../../../components/Input';
 import { type ITransactions } from '../../../interfaces/ITransactions';
 import { v4 as uuidv4 } from 'uuid';
@@ -74,6 +76,7 @@ export const ModalForm = (): JSX.Element => {
 
         <S.FormButtons>
           <Button
+            icon
             color="fontColor"
             background={
               transactionType === 'deposit' ? 'greenColor' : 'fieldColor'
@@ -88,10 +91,14 @@ export const ModalForm = (): JSX.Element => {
               setTransactionType('deposit');
             }}
           >
-            Entrada
+            <figure>
+              <img src={income} alt="" />
+            </figure>
+            <span>Entrada</span>
           </Button>
 
           <Button
+            icon
             color="fontColor"
             background={
               transactionType === 'withdraw' ? 'buttonRedColor' : 'fieldColor'
@@ -110,7 +117,10 @@ export const ModalForm = (): JSX.Element => {
               setTransactionType('withdraw');
             }}
           >
-            Saída
+            <figure>
+              <img src={outcome} alt="" />
+            </figure>
+            <span>Saída</span>
           </Button>
 
           <Button

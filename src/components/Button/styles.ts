@@ -48,6 +48,8 @@ export const ButtonElement = styled.button<ButtonProperties>`
     css`
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: .625rem;
   `}
 
   &:hover {
