@@ -37,7 +37,7 @@ export const ModalEditForm = (): JSX.Element => {
   };
 
   return (
-    <S.ModalEditFormArea>
+    <S.ModalFormArea>
       <h2>Editar transação</h2>
 
       <form onSubmit={handleSubmit}>
@@ -135,6 +135,6 @@ export const ModalEditForm = (): JSX.Element => {
           </Button>
         </S.FormButtons>
       </form>
-    </S.ModalEditFormArea>
+    </S.ModalFormArea>
   );
 };

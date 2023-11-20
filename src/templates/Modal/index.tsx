@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 import closeIcon from '../../assets/close.svg';
-import { ModalCreateForm } from './ModalCreateForm';
+import { ModalCreateForm } from './ModalForms/ModalCreateForm';
+import { ModalEditForm } from './ModalForms/ModalEditForm';
 import { useModalActive } from '../../hooks/useModalActive';
-import { ModalEditForm } from './ModalEditForm';
 import { useModalType } from '../../hooks/useModalType';
 
 export const Modal = (): JSX.Element => {

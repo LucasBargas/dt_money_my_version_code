@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ModalEditFormArea = styled.div`
+export const ModalFormArea = styled.div`
   padding: 0 3rem 3rem 3rem;
 
   @media (max-width: 390px) {
