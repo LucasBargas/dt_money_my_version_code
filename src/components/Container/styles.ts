@@ -5,10 +5,6 @@ export const ContainerWrapper = styled.div`
   max-width: 1120px;
   margin: 0 auto;
 
-  @media (max-width: 1366px) {
-    max-width: 1120px;
-  }
-
   @media (max-width: 1024px) {
     padding: 0 2.75rem;
   }
