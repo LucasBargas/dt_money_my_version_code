@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../../../components/Button';
 import { useTransactions } from '../../../hooks/useTransactions';
 
-export const ModalForm = (): JSX.Element => {
+export const ModalCreateForm = (): JSX.Element => {
   const [transactionType, setTransactionType] = React.useState('deposit');
   const { transactions, setTransactions } = useTransactions();
   const [data, setData] = React.useState({} as ITransactions);
@@ -37,7 +37,7 @@ export const ModalForm = (): JSX.Element => {
   };
 
   return (
-    <S.ModalFormArea>
+    <S.ModalCreateFormArea>
       <h2>Nova transação</h2>
 
       <form onSubmit={handleSubmit}>
@@ -135,6 +135,6 @@ export const ModalForm = (): JSX.Element => {
           </Button>
         </S.FormButtons>
       </form>
-    </S.ModalFormArea>
+    </S.ModalCreateFormArea>
   );
 };

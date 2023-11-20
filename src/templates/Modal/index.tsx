@@ -1,11 +1,14 @@
 import React from 'react';
 import * as S from './styles';
 import closeIcon from '../../assets/close.svg';
-import { ModalForm } from './ModalForm';
+import { ModalCreateForm } from './ModalCreateForm';
 import { useModalActive } from '../../hooks/useModalActive';
+import { ModalEditForm } from './ModalEditForm';
+import { useModalType } from '../../hooks/useModalType';
 
 export const Modal = (): JSX.Element => {
   const { modalActive, setModalActive } = useModalActive();
+  const { modalType } = useModalType();
 
   const handleOutsideClick = (e: React.MouseEvent): void => {
     if (modalActive && e.target === e.currentTarget) {
@@ -28,7 +31,8 @@ export const Modal = (): JSX.Element => {
           </button>
         </S.ModalAreaHeader>
 
-        <ModalForm />
+        {modalType === 'create' && <ModalCreateForm />}
+        {modalType === 'edit' && <ModalEditForm />}
       </S.ModalArea>
     </S.ModalContainer>
   );
