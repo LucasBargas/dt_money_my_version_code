@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SummaryContainer = styled.section`
   width: 100%;
   max-width: 1120px;
-  margin: -5rem auto 0 auto;
+  margin: -4.75rem auto 0 auto;
 
   @media (max-width: 1024px) {
     padding: 0 2.75rem;
