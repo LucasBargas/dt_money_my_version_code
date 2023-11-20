@@ -16,7 +16,7 @@ export const ModalContainer = styled.section<ModalProps>`
   background: ${({ theme }) => theme.colors.modalBackground};
   opacity: ${({ modalActive }) => (modalActive ? '1' : '0')};
   pointer-events: ${({ modalActive }) => (modalActive ? 'all' : 'none')};
-  transition: .4s;
+  transition: .3s;
 
   @media (max-width: 1024px) {
     padding: 0 2.75rem;
@@ -40,7 +40,7 @@ export const ModalArea = styled.div<ModalProps>`
   border-radius: .375rem;
   transform: ${({ modalActive }) =>
     modalActive ? 'translate3d(0, 0, 0)' : 'translate3d(0, 40px, 0)'};
-  transition: .4s;
+  transition: .3s;
 `;
 
 export const ModalAreaHeader = styled.div`
