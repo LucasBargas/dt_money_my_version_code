@@ -27,7 +27,7 @@ export const ModalEditForm = (): JSX.Element => {
     const transaction: ITransactions = {
       id: uuidv4(),
       description,
-      amount,
+      amount: Number(amount),
       category,
       transactionType,
       createdAt: new Date().toLocaleString('pt-BR').slice(0, 10),

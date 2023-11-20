@@ -1,3 +1,4 @@
+import React from 'react';
 import * as S from './styles';
 import incomeIcon from '../../assets/income.svg';
 import outcomeIcon from '../../assets/outcome.svg';
