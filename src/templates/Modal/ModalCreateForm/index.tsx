@@ -8,12 +8,13 @@ import { type ITransactions } from '../../../interfaces/ITransactions';
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../../../components/Button';
 import { useTransactions } from '../../../hooks/useTransactions';
+import { useModalActive } from '../../../hooks/useModalActive';
 
 export const ModalCreateForm = (): JSX.Element => {
   const [transactionType, setTransactionType] = React.useState('deposit');
   const { transactions, setTransactions } = useTransactions();
   const [data, setData] = React.useState({} as ITransactions);
-  // const [data, setData] = React.useState(transactions[0]);
+  const { modalActive, setModalActive } = useModalActive();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -34,6 +35,8 @@ export const ModalCreateForm = (): JSX.Element => {
     };
 
     setTransactions([transaction, ...transactions]);
+    setModalActive(!modalActive);
+    setData({} as ITransactions);
   };
 
   return (
@@ -48,8 +51,7 @@ export const ModalCreateForm = (): JSX.Element => {
           name="description"
           type="text"
           handleChange={handleChange}
-          value={data.description}
-          // value={(props.type === 'edit' && data?.description) || ''}
+          value={data.description || ''}
         />
 
         <Input
@@ -58,9 +60,8 @@ export const ModalCreateForm = (): JSX.Element => {
           placeholder="Preço"
           name="amount"
           type="text"
-          value={data.amount}
+          value={data.amount || ''}
           handleChange={handleChange}
-          // value={(props.type === 'edit' && data?.amount) || ''}
         />
 
         <Input
@@ -70,8 +71,7 @@ export const ModalCreateForm = (): JSX.Element => {
           name="category"
           type="text"
           handleChange={handleChange}
-          value={data.category}
-          // value={(props.type === 'edit' && data?.category) || ''}
+          value={data.category || ''}
         />
 
         <S.FormButtons>
