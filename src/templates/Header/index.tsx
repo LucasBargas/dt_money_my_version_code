@@ -2,11 +2,10 @@ import * as S from './styles';
 import { Container } from '../../components/Container';
 import logo from '../../assets/logo.svg';
 import { Button } from '../../components/Button';
+import { useModalActive } from '../../hooks/useModalActive';
 
 export const Header = (): JSX.Element => {
-  const handleClick = (): void => {
-    console.log('Olá');
-  };
+  const { modalActive, setModalActive } = useModalActive();
 
   return (
     <S.HeaderContainer>
@@ -17,7 +16,9 @@ export const Header = (): JSX.Element => {
           </figure>
 
           <Button
-            handleClick={handleClick}
+            handleClick={() => {
+              setModalActive(!modalActive);
+            }}
             color="fontColor"
             background="greenColor"
             border="greenColor"
