@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const TransactionsTableListContainer = styled.div`
   padding-top: 1.25rem;
+  min-height: 330px;
 `;
 
 export const TransactionsTableListHeader = styled.div`
