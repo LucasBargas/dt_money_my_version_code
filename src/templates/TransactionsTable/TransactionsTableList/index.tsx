@@ -55,7 +55,6 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
             <li>Valor</li>
             <li>Categoria</li>
             <li>Data</li>
-            <li>Ações</li>
           </ul>
         </S.TransactionsTableListHeader>
       )}

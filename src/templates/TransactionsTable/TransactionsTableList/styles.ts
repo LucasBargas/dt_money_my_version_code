@@ -107,6 +107,7 @@ export const TransactionSingle = styled.div<{
 export const TransactionsTableListActions = styled.td`
   display: flex;
   flex-direction: row !important;
+  justify-content: flex-end;
   gap: .375rem;
 
   @media (max-width: 768px) {
