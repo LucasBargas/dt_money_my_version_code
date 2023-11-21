@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import * as S from './styles';
 import { useTransactions } from '../../../hooks/useTransactions';
@@ -5,16 +6,19 @@ import { useModalActive } from '../../../hooks/useModalActive';
 import { useModalType } from '../../../hooks/useModalType';
 import { useTransactionById } from '../../../hooks/useTransactionById';
 import { MdEdit, MdDelete } from 'react-icons/md';
+import { DeleteModal } from '../../../components/DeleteModal';
 
 interface Props {
   inputValue: string;
 }
 
 export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
-  const { transactions, setTransactions } = useTransactions();
+  const { transactions } = useTransactions();
   const { modalActive, setModalActive } = useModalActive();
   const { setModalType } = useModalType();
   const { setTransactionById } = useTransactionById();
+  const [deleteModalActive, setDeleteModalActive] =
+    React.useState<boolean>(false);
 
   const handleEditClick = (id: string): void => {
     setModalActive(!modalActive);
@@ -23,12 +27,8 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
   };
 
   const handleDeleteClick = (id: string): void => {
-    const transactionsCopy = transactions.filter((el) => el.id !== id);
-    setTransactions(transactionsCopy);
-
-    if (transactionsCopy.length === 0) {
-      localStorage.removeItem('transactions');
-    }
+    setDeleteModalActive(!deleteModalActive);
+    setTransactionById(id);
   };
 
   const transactionsFiltered = inputValue.trim()
@@ -103,6 +103,11 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
       {transactions.length > 0 && transactionsFiltered.length === 0 && (
         <p>Nenhuma transação registrada com: "{inputValue}".</p>
       )}
+
+      <DeleteModal
+        deleteModalActive={deleteModalActive}
+        setDeleteModalActive={setDeleteModalActive}
+      />
     </S.TransactionsTableListContainer>
   );
 };
