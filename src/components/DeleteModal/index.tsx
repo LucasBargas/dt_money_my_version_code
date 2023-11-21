@@ -32,8 +32,17 @@ export const DeleteModal = (props: Props): JSX.Element => {
     handleCloseDeleteModal();
   };
 
+  const handleOutsideClick = (e: React.MouseEvent): void => {
+    if (props.deleteModalActive && e.target === e.currentTarget) {
+      handleCloseDeleteModal();
+    }
+  };
+
   return (
-    <S.DeleteModalContainer deleteModalActive={props.deleteModalActive}>
+    <S.DeleteModalContainer
+      onClick={handleOutsideClick}
+      deleteModalActive={props.deleteModalActive}
+    >
       <S.DeleteModalArea deleteModalActive={props.deleteModalActive}>
         <S.DeleteModalAreaHeader>
           <button onClick={handleCloseDeleteModal}>
