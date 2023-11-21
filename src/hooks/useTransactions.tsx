@@ -15,7 +15,7 @@ const TransactionsContext = React.createContext<ITransactionsContextData>(
   {} as ITransactionsContextData,
 );
 
-export const TaskListProvider = ({ children }: Props): JSX.Element => {
+export const TransactionsProvider = ({ children }: Props): JSX.Element => {
   const [transactions, setTransactions] = React.useState<ITransactions[]>([]);
 
   return (

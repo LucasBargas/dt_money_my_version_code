@@ -8,11 +8,16 @@ import { useModalType } from '../../hooks/useModalType';
 
 export const Modal = (): JSX.Element => {
   const { modalActive, setModalActive } = useModalActive();
-  const { modalType } = useModalType();
+  const { modalType, setModalType } = useModalType();
+
+  const handleCloseModal = (): void => {
+    setModalActive(false);
+    setModalType('create');
+  };
 
   const handleOutsideClick = (e: React.MouseEvent): void => {
     if (modalActive && e.target === e.currentTarget) {
-      setModalActive(false);
+      handleCloseModal();
     }
   };
 
@@ -20,11 +25,7 @@ export const Modal = (): JSX.Element => {
     <S.ModalContainer modalActive={modalActive} onClick={handleOutsideClick}>
       <S.ModalArea modalActive={modalActive}>
         <S.ModalAreaHeader>
-          <button
-            onClick={() => {
-              setModalActive(!modalActive);
-            }}
-          >
+          <button onClick={handleCloseModal}>
             <figure>
               <img src={closeIcon} alt="Fechar Modal" />
             </figure>

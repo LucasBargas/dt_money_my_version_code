@@ -3,6 +3,7 @@ import * as S from './styles';
 import { useTransactions } from '../../../hooks/useTransactions';
 import { useModalActive } from '../../../hooks/useModalActive';
 import { useModalType } from '../../../hooks/useModalType';
+import { useTransactionById } from '../../../hooks/useTransactionById';
 
 interface Props {
   inputValue: string;
@@ -12,11 +13,12 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
   const { transactions, setTransactions } = useTransactions();
   const { modalActive, setModalActive } = useModalActive();
   const { setModalType } = useModalType();
+  const { setTransactionById } = useTransactionById();
 
   const handleEditClick = (id: string): void => {
     setModalActive(!modalActive);
     setModalType('edit');
-    console.log(id);
+    setTransactionById(id);
   };
 
   const handleDeleteClick = (id: string): void => {
@@ -30,15 +32,15 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
 
   const transactionsFiltered = inputValue.trim()
     ? transactions.filter((transaction) => {
-      return (
-        transaction.category
-          .toLowerCase()
-          .includes(inputValue.toLowerCase()) ||
+        return (
+          transaction.category
+            .toLowerCase()
+            .includes(inputValue.toLowerCase()) ||
           transaction.description
             .toLowerCase()
             .includes(inputValue.toLowerCase())
-      );
-    })
+        );
+      })
     : transactions;
 
   return (

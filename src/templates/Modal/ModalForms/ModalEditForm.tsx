@@ -5,15 +5,21 @@ import income from '../../../assets/income.svg';
 import outcome from '../../../assets/outcome.svg';
 import { Input } from '../../../components/Input';
 import { type ITransactions } from '../../../interfaces/ITransactions';
-import { v4 as uuidv4 } from 'uuid';
 import { Button } from '../../../components/Button';
 import { useTransactions } from '../../../hooks/useTransactions';
+import { useTransactionById } from '../../../hooks/useTransactionById';
+import { useModalActive } from '../../../hooks/useModalActive';
+import { useModalType } from '../../../hooks/useModalType';
 
 export const ModalEditForm = (): JSX.Element => {
-  const [transactionType, setTransactionType] = React.useState('deposit');
   const { transactions, setTransactions } = useTransactions();
-  const [data, setData] = React.useState({} as ITransactions);
-  // const [data, setData] = React.useState(transactions[0]);
+  const { transaction } = useTransactionById();
+  const [data, setData] = React.useState<ITransactions>(transaction!);
+  const { modalActive, setModalActive } = useModalActive();
+  const { setModalType } = useModalType();
+  const [transactionType, setTransactionType] = React.useState(
+    transaction!.transactionType,
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -23,17 +29,21 @@ export const ModalEditForm = (): JSX.Element => {
     e.preventDefault();
 
     const { description, amount, category } = data;
+    const transactionsCopy = transactions.map((el) => el);
 
-    const transaction: ITransactions = {
-      id: uuidv4(),
-      description,
-      amount: Number(amount),
-      category,
-      transactionType,
-      createdAt: new Date().toLocaleString('pt-BR').slice(0, 10),
-    };
+    transactionsCopy.forEach((el) => {
+      if (el.id === transaction?.id) {
+        el.description = description;
+        el.amount = Number(amount);
+        el.category = category;
+        el.transactionType = transactionType;
+        el.createdAt = new Date().toLocaleString('pt-BR').slice(0, 10);
+      }
+    });
 
-    setTransactions([transaction, ...transactions]);
+    setTransactions(transactionsCopy);
+    setModalActive(!modalActive);
+    setModalType('create');
   };
 
   return (
@@ -48,8 +58,7 @@ export const ModalEditForm = (): JSX.Element => {
           name="description"
           type="text"
           handleChange={handleChange}
-          value={data.description}
-          // value={(props.type === 'edit' && data?.description) || ''}
+          value={data?.description || ''}
         />
 
         <Input
@@ -58,9 +67,8 @@ export const ModalEditForm = (): JSX.Element => {
           placeholder="Preço"
           name="amount"
           type="text"
-          value={data.amount}
+          value={data?.amount || ''}
           handleChange={handleChange}
-          // value={(props.type === 'edit' && data?.amount) || ''}
         />
 
         <Input
@@ -70,8 +78,7 @@ export const ModalEditForm = (): JSX.Element => {
           name="category"
           type="text"
           handleChange={handleChange}
-          value={data.category}
-          // value={(props.type === 'edit' && data?.category) || ''}
+          value={data?.category || ''}
         />
 
         <S.FormButtons>
