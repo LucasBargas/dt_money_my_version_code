@@ -26,3 +26,25 @@ export const TransactionsTableListContainer = styled.div`
     }
   }
 `;
+
+export const TransactionsTableListActions = styled.td`
+  display: flex;
+  gap: .375rem;
+
+  button {
+    background: transparent;
+    padding: .25rem;
+
+    &:hover {
+      svg {
+        color: ${({ theme }) => theme.colors.greenColorActive};
+      }
+    }
+
+    svg {
+      color: ${({ theme }) => theme.colors.greenColor};
+      font-size: 1.25rem;
+      transition: .4s;
+    }
+  }
+`;

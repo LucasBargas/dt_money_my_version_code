@@ -4,6 +4,7 @@ import { useTransactions } from '../../../hooks/useTransactions';
 import { useModalActive } from '../../../hooks/useModalActive';
 import { useModalType } from '../../../hooks/useModalType';
 import { useTransactionById } from '../../../hooks/useTransactionById';
+import { MdEdit, MdDelete } from 'react-icons/md';
 
 interface Props {
   inputValue: string;
@@ -32,15 +33,15 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
 
   const transactionsFiltered = inputValue.trim()
     ? transactions.filter((transaction) => {
-        return (
-          transaction.category
-            .toLowerCase()
-            .includes(inputValue.toLowerCase()) ||
+      return (
+        transaction.category
+          .toLowerCase()
+          .includes(inputValue.toLowerCase()) ||
           transaction.description
             .toLowerCase()
             .includes(inputValue.toLowerCase())
-        );
-      })
+      );
+    })
     : transactions;
 
   return (
@@ -69,22 +70,28 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
                 </td>
                 <td>{transaction.category}</td>
                 <td>{transaction.createdAt}</td>
-                <td>
+                <S.TransactionsTableListActions>
                   <button
                     onClick={() => {
                       handleDeleteClick(transaction.id);
                     }}
+                    title="Deletar transação"
                   >
-                    Apagar
+                    <i>
+                      <MdDelete />
+                    </i>
                   </button>
                   <button
                     onClick={() => {
                       handleEditClick(transaction.id);
                     }}
+                    title="Editar transação"
                   >
-                    Editar
+                    <i>
+                      <MdEdit />
+                    </i>
                   </button>
-                </td>
+                </S.TransactionsTableListActions>
               </tr>
             ))}
           </tbody>
