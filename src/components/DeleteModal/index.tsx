@@ -44,7 +44,7 @@ export const DeleteModal = (props: Props): JSX.Element => {
         </S.DeleteModalAreaHeader>
 
         <S.DeleteModalAreaContent>
-          <h2>Tem certeza que deseja deletar esta tarefa?</h2>
+          <h2>Tem certeza que deseja deletar esta transação?</h2>
 
           <S.DeleteModalAreaActions>
             <Button

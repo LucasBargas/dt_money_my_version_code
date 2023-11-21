@@ -67,6 +67,7 @@ export const DeleteModalAreaContent = styled.div`
   h2 {
     font-size: 1.25rem;
     text-align: center;
+    line-height: 2rem;
   }
 `;
 
