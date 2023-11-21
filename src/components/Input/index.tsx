@@ -8,7 +8,9 @@ interface Props {
   name: string;
   type: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string | number;
+  error?: boolean | string;
 }
 
 export const Input = (props: Props): JSX.Element => {
@@ -19,8 +21,10 @@ export const Input = (props: Props): JSX.Element => {
         name={props.name}
         type={props.type}
         onChange={props.handleChange}
+        onBlur={props.handleBlur}
         value={props.value}
       />
+      {props.error && <p>{props.error}</p>}
     </S.InputContainer>
   );
 };

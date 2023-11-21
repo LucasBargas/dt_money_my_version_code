@@ -20,9 +20,40 @@ export const ModalEditForm = (): JSX.Element => {
   const [transactionType, setTransactionType] = React.useState(
     transaction!.transactionType,
   );
+  const [descriptionError, setDescriptionError] =
+    React.useState<boolean>(false);
+  const [amountError, setAmountError] = React.useState<boolean>(false);
+  const [categoryError, setCategoryError] = React.useState<boolean>(false);
+  const [regex] = React.useState(/^[0-9]+$/);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
+
+    if (e.target.name === 'description') {
+      setDescriptionError(false);
+    }
+
+    if (e.target.name === 'amount') {
+      setAmountError(false);
+    }
+
+    if (e.target.name === 'category') {
+      setCategoryError(false);
+    }
+  };
+
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    if (e.target.name === 'description' && e.target.value.length === 0) {
+      setDescriptionError(true);
+    }
+
+    if (e.target.name === 'amount' && !regex.test(e.target.value)) {
+      setAmountError(true);
+    }
+
+    if (e.target.name === 'category' && e.target.value.length === 0) {
+      setCategoryError(true);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent): void => {
@@ -40,6 +71,27 @@ export const ModalEditForm = (): JSX.Element => {
         el.createdAt = new Date().toLocaleString('pt-BR').slice(0, 10);
       }
     });
+
+    if (!description) {
+      setDescriptionError(true);
+      return;
+    } else {
+      setDescriptionError(false);
+    }
+
+    if (!amount || !regex.test(amount as string)) {
+      setAmountError(true);
+      return;
+    } else {
+      setAmountError(false);
+    }
+
+    if (!category) {
+      setCategoryError(true);
+      return;
+    } else {
+      setCategoryError(false);
+    }
 
     setTransactions(transactionsCopy);
     setModalActive(!modalActive);
@@ -60,7 +112,9 @@ export const ModalEditForm = (): JSX.Element => {
           name="description"
           type="text"
           handleChange={handleChange}
-          value={data?.description || ''}
+          handleBlur={handleBlur}
+          value={data.description || ''}
+          error={descriptionError && 'É preciso colocar uma descrição.'}
         />
 
         <Input
@@ -69,8 +123,10 @@ export const ModalEditForm = (): JSX.Element => {
           placeholder="Preço"
           name="amount"
           type="text"
-          value={data?.amount || ''}
+          value={data.amount || ''}
+          handleBlur={handleBlur}
           handleChange={handleChange}
+          error={amountError && 'É preciso colocar um preço válido.'}
         />
 
         <Input
@@ -80,7 +136,9 @@ export const ModalEditForm = (): JSX.Element => {
           name="category"
           type="text"
           handleChange={handleChange}
-          value={data?.category || ''}
+          handleBlur={handleBlur}
+          value={data.category || ''}
+          error={categoryError && 'É preciso colocar uma categoria.'}
         />
 
         <S.FormButtons>

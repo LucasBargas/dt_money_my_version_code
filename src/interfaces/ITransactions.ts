@@ -2,7 +2,7 @@ export interface ITransactions {
   id: string;
   description: string;
   category: string;
-  amount: number;
+  amount: string | number;
   transactionType: string;
   createdAt: string;
 }

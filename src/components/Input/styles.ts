@@ -6,7 +6,7 @@ export const InputContainer = styled.div<{ focus?: boolean }>`
     height: 3.375rem;
     font-size: 1rem;
     font-weight: 500;
-    color: #7C7C8A;
+    color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.primaryColor};
     border: 2px solid transparent;
     border-radius: .375rem;
@@ -20,5 +20,11 @@ export const InputContainer = styled.div<{ focus?: boolean }>`
       border-color: ${({ theme }) => theme.colors.fontColor};
     }
     `}
+  }
+
+  p {
+    font-size: .9325rem;
+    color: tomato;
+    margin-top: .5rem;
   }
 `;

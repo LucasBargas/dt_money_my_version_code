@@ -15,9 +15,40 @@ export const ModalCreateForm = (): JSX.Element => {
   const { transactions, setTransactions } = useTransactions();
   const [data, setData] = React.useState({} as ITransactions);
   const { modalActive, setModalActive } = useModalActive();
+  const [descriptionError, setDescriptionError] =
+    React.useState<boolean>(false);
+  const [amountError, setAmountError] = React.useState<boolean>(false);
+  const [categoryError, setCategoryError] = React.useState<boolean>(false);
+  const [regex] = React.useState(/^[0-9]+$/);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setData({ ...data, [e.target.name]: e.target.value });
+
+    if (e.target.name === 'description') {
+      setDescriptionError(false);
+    }
+
+    if (e.target.name === 'amount') {
+      setAmountError(false);
+    }
+
+    if (e.target.name === 'category') {
+      setCategoryError(false);
+    }
+  };
+
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    if (e.target.name === 'description' && e.target.value.length === 0) {
+      setDescriptionError(true);
+    }
+
+    if (e.target.name === 'amount' && !regex.test(e.target.value)) {
+      setAmountError(true);
+    }
+
+    if (e.target.name === 'category' && e.target.value.length === 0) {
+      setCategoryError(true);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent): void => {
@@ -33,6 +64,27 @@ export const ModalCreateForm = (): JSX.Element => {
       transactionType,
       createdAt: new Date().toLocaleString('pt-BR').slice(0, 10),
     };
+
+    if (!description) {
+      setDescriptionError(true);
+      return;
+    } else {
+      setDescriptionError(false);
+    }
+
+    if (!amount || !regex.test(amount as string)) {
+      setAmountError(true);
+      return;
+    } else {
+      setAmountError(false);
+    }
+
+    if (!category) {
+      setCategoryError(true);
+      return;
+    } else {
+      setCategoryError(false);
+    }
 
     setTransactions([transaction, ...transactions]);
     setModalActive(!modalActive);
@@ -51,7 +103,9 @@ export const ModalCreateForm = (): JSX.Element => {
           name="description"
           type="text"
           handleChange={handleChange}
+          handleBlur={handleBlur}
           value={data.description || ''}
+          error={descriptionError && 'É preciso colocar uma descrição.'}
         />
 
         <Input
@@ -61,7 +115,9 @@ export const ModalCreateForm = (): JSX.Element => {
           name="amount"
           type="text"
           value={data.amount || ''}
+          handleBlur={handleBlur}
           handleChange={handleChange}
+          error={amountError && 'É preciso colocar um preço válido.'}
         />
 
         <Input
@@ -71,7 +127,9 @@ export const ModalCreateForm = (): JSX.Element => {
           name="category"
           type="text"
           handleChange={handleChange}
+          handleBlur={handleBlur}
           value={data.category || ''}
+          error={categoryError && 'É preciso colocar uma categoria.'}
         />
 
         <S.FormButtons>
