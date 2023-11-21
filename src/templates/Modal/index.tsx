@@ -12,7 +12,9 @@ export const Modal = (): JSX.Element => {
 
   const handleCloseModal = (): void => {
     setModalActive(false);
-    setModalType('create');
+    setTimeout(() => {
+      setModalType('create');
+    }, 400);
   };
 
   const handleOutsideClick = (e: React.MouseEvent): void => {

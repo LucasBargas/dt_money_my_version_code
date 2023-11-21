@@ -43,7 +43,9 @@ export const ModalEditForm = (): JSX.Element => {
 
     setTransactions(transactionsCopy);
     setModalActive(!modalActive);
-    setModalType('create');
+    setTimeout(() => {
+      setModalType('create');
+    }, 400);
   };
 
   return (
