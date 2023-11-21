@@ -3,6 +3,7 @@ import * as S from './styles';
 import { Container } from '../../components/Container';
 import { Input } from '../../components/Input';
 import { TransactionsTableList } from './TransactionsTableList';
+import { IoSearchSharp } from 'react-icons/io5';
 
 export const TransactionsTable = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('');
@@ -29,6 +30,9 @@ export const TransactionsTable = (): JSX.Element => {
               handleChange={handleChange}
               value={inputValue}
             />
+            <i>
+              <IoSearchSharp />
+            </i>
           </form>
 
           <TransactionsTableList inputValue={inputValue} />

@@ -83,14 +83,14 @@ export const TransactionsTableList = ({ inputValue }: Props): JSX.Element => {
 
               <p>
                 <figure>
-                  <img src={saleIcon} alt="" />
+                  <img src={saleIcon} alt="Categoria" />
                 </figure>{' '}
                 {transaction.category}
               </p>
 
               <p>
                 <figure>
-                  <img src={calendarIcon} alt="" />
+                  <img src={calendarIcon} alt="Calendário" />
                 </figure>{' '}
                 {transaction.createdAt}
               </p>

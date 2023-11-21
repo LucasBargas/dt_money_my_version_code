@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const InputContainer = styled.div<{ focus?: boolean }>`
   input {
     width: 100%;
+    max-width: 1120px;
     height: 3.375rem;
     font-size: 1rem;
     font-weight: 500;
