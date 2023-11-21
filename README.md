@@ -1,5 +1,5 @@
 ## Projeto DT Money
-O projeto **DT Money** foi desenvolvido por mim, Lucas Bargas, com base em um layout que localizado numa aula na RocketSeat. Decidi refaze-lo completamente do zero, com minha própria lógica e aplicando algumas novas funcionalidades.
+O projeto **DT Money** foi desenvolvido por mim, Lucas Bargas, com base em um layout que foi localizado numa aula na RocketSeat. Decidi refaze-lo completamente do zero, com minha própria lógica e aplicando algumas novas funcionalidades.
 
 ### Link para visualizar o projeto
 <https://dtmoney-lbs.vercel.app/>
