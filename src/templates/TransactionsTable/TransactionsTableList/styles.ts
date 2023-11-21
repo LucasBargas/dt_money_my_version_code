@@ -37,12 +37,23 @@ export const TransactionsTableListActions = styled.td`
 
     &:hover {
       svg {
-        color: ${({ theme }) => theme.colors.greenColorActive};
+        filter: brightness(.8);
+      }
+    }
+
+    &:first-of-type {
+      svg {
+        color: ${({ theme }) => theme.colors.negativeColor};
+      }
+    }
+
+    &:last-of-type {
+      svg {
+        color: ${({ theme }) => theme.colors.greenColor};
       }
     }
 
     svg {
-      color: ${({ theme }) => theme.colors.greenColor};
       font-size: 1.25rem;
       transition: .4s;
     }
