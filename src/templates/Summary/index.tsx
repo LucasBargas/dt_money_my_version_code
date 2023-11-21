@@ -19,7 +19,7 @@ export const Summary = (): JSX.Element => {
       .filter((el) => {
         return el.transactionType === type && el;
       })
-      .map((el) => el.amount)
+      .map((el) => el.amount as number)
       .reduce((ac, value) => ac + value, 0);
 
     return transactionsList;
