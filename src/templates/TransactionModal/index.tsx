@@ -1,12 +1,12 @@
 import React from 'react';
 import * as S from './styles';
 import closeIcon from '../../assets/close.svg';
-import { ModalCreateForm } from './ModalForms/ModalCreateForm';
-import { ModalEditForm } from './ModalForms/ModalEditForm';
+import { ModalCreateForm } from './TransactionModalForms/TransactionModalCreateForm';
+import { ModalEditForm } from './TransactionModalForms/TransactionModalEditForm';
 import { useModalActive } from '../../hooks/useModalActive';
 import { useModalType } from '../../hooks/useModalType';
 
-export const Modal = (): JSX.Element => {
+export const TransactionModal = (): JSX.Element => {
   const { modalActive, setModalActive } = useModalActive();
   const { modalType, setModalType } = useModalType();
 
@@ -24,19 +24,22 @@ export const Modal = (): JSX.Element => {
   };
 
   return (
-    <S.ModalContainer modalActive={modalActive} onClick={handleOutsideClick}>
-      <S.ModalArea modalActive={modalActive}>
-        <S.ModalAreaHeader>
+    <S.TransactionModalContainer
+      modalActive={modalActive}
+      onClick={handleOutsideClick}
+    >
+      <S.TransactionModalArea modalActive={modalActive}>
+        <S.TransactionModalAreaHeader>
           <button onClick={handleCloseModal}>
             <figure>
               <img src={closeIcon} alt="Fechar Modal" />
             </figure>
           </button>
-        </S.ModalAreaHeader>
+        </S.TransactionModalAreaHeader>
 
         {modalType === 'create' && <ModalCreateForm />}
         {modalType === 'edit' && <ModalEditForm />}
-      </S.ModalArea>
-    </S.ModalContainer>
+      </S.TransactionModalArea>
+    </S.TransactionModalContainer>
   );
 };

@@ -4,7 +4,7 @@ interface ModalProps {
   modalActive: boolean;
 }
 
-export const ModalContainer = styled.section<ModalProps>`
+export const TransactionModalContainer = styled.section<ModalProps>`
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@ export const ModalContainer = styled.section<ModalProps>`
   }
 `;
 
-export const ModalArea = styled.div<ModalProps>`
+export const TransactionModalArea = styled.div<ModalProps>`
   width: 100%;
   max-width: 535px;
   background: ${({ theme }) => theme.colors.secondaryColor};
@@ -43,7 +43,7 @@ export const ModalArea = styled.div<ModalProps>`
   transition: .3s;
 `;
 
-export const ModalAreaHeader = styled.div`
+export const TransactionModalAreaHeader = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: .375rem .375rem 0 .375rem;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../../templates/Header';
-import { Modal } from '../../templates/Modal';
+import { TransactionModal } from '../../templates/TransactionModal';
 import { Summary } from '../../templates/Summary';
 import { TransactionsTable } from '../../templates/TransactionsTable';
 
@@ -10,7 +10,7 @@ export const Homepage = (): JSX.Element => {
       <Header />
       <Summary />
       <TransactionsTable />
-      <Modal />
+      <TransactionModal />
     </React.Fragment>
   );
 };
