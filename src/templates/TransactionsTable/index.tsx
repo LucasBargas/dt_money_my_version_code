@@ -24,7 +24,7 @@ export const TransactionsTable = (): JSX.Element => {
             <Input
               focus
               id="test"
-              placeholder="Descrição"
+              placeholder="Pesquise por descrição ou categoria"
               name="description"
               type="text"
               handleChange={handleChange}
